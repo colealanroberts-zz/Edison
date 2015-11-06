@@ -48,9 +48,7 @@
         // Check to see if the timer is running
         if (ranOnce === false) {
             initialResetTime = 60 - sec;
-            console.log(ranOnce);
-        } else {
-            console.log(ranOnce);
+            console.log(initialResetTime);
         }
 
         // If the timer receives 60 - 60 then set it to 1000ms to account for this
@@ -59,17 +57,21 @@
         }
     }
 
-    getLocalTime();
-    changeNavStyle();
-
-    console.log(initialResetTime);
-
     if (ranOnce === false) {
-        setInterval(function() {getLocalTime();}, initialResetTime * 1000);
-        ranOnce = true;
+        setInterval(function() {
+            ranOnce = true;
+            initialResetTime = 60;
+            getLocalTime();
+        }, initialResetTime * 1000);
+
     } else if (ranOnce === true) {
-        setInterval(function() {getLocalTime();}, 60 * 1000);
+        setInterval(function() {
+            getLocalTime();
+        }, initialResetTime * 1000);
     } else {
         console.log("We've encountered some kind of error");
     }
+
+    // Init
+    getLocalTime();
 })();
