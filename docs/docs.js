@@ -48,6 +48,9 @@
         // Check to see if the timer is running
         if (ranOnce === false) {
             initialResetTime = 60 - sec;
+            console.log(ranOnce);
+        } else {
+            console.log(ranOnce);
         }
 
         // If the timer receives 60 - 60 then set it to 1000ms to account for this
@@ -59,6 +62,8 @@
     getLocalTime();
     changeNavStyle();
 
+    console.log(initialResetTime);
+
     if (ranOnce === false) {
         setInterval(function() {getLocalTime();}, initialResetTime * 1000);
         ranOnce = true;
@@ -67,6 +72,4 @@
     } else {
         console.log("We've encountered some kind of error");
     }
-
-    window.addEventListener('scroll', changeNavStyle);
 })();
