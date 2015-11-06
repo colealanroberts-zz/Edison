@@ -1,4 +1,8 @@
 (function() {
+    // Global Time Var
+    var initialResetTime,
+        ranOnce = false;
+
     // Elements
     var nav           = document.querySelector('nav'),
         logo          = document.querySelector('.logo__type'),
@@ -28,9 +32,10 @@
             minEl  = document.querySelector('.hero-unit__watch__time--minute');
 
         // Time
-        var d      = new Date(),
-            hour   = d.getHours() % 12 || 12,
-            minute = d.getMinutes();
+        var t      = new Date(),
+            hour   = t.getHours() % 12 || 12,
+            minute = t.getMinutes(),
+            sec    = t.getSeconds();
 
         hourEl.innerHTML = hour;
 
@@ -39,12 +44,34 @@
         } else {
             minEl.innerHTML  = minute;
         }
+
+        // Check to see if the timer is running
+        if (ranOnce === false) {
+            initialResetTime = 60 - sec;
+            console.log(ranOnce);
+        } else {
+            console.log(ranOnce);
+        }
+
+        // If the timer receives 60 - 60 then set it to 1000ms to account for this
+        if (initialResetTime === 0) {
+            initialResetTime = 1;
+        }
     }
 
     getLocalTime();
     changeNavStyle();
 
-    setInterval(function() {getLocalTime();}, 60000);
+    console.log(initialResetTime);
+
+    if (ranOnce === false) {
+        setInterval(function() {getLocalTime();}, initialResetTime * 1000);
+        ranOnce = true;
+    } else if (ranOnce === true) {
+        setInterval(function() {getLocalTime();}, 60 * 1000);
+    } else {
+        console.log("We've encountered some kind of error");
+    }
 
     window.addEventListener('scroll', changeNavStyle);
 })();
