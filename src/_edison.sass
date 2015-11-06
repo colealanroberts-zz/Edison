@@ -1,0 +1,29 @@
+$version: 'v0.0.1'
+
+/*!
+ * Edison #{$version}
+ * A lightweight flexbox framework built on Bourbon, Neat & AngularJS
+ * Copyright 2015 Cole Roberts
+ * Licensed under MIT
+ */
+
+// Import the Bourbon & Neat Libraries
+@import "../vendor/bourbon/dist/bourbon/"
+@import "../vendor/neat/app/assets/stylesheets/neat"
+
+// Import Modules (Required)
+@import "modules/_variables"
+@import "modules/_mixins"
+@import "modules/_directives"
+
+// Import Partials (Required)
+@import "partials/_structure"
+@import "partials/_scaffolding"
+
+// Import UI Component Partials (Optional)
+@import "partials/_inputs"
+@import "partials/_selects"
+@import "partials/_buttons"
+
+// Import Helper Partials (Optional)
+@import "partials/_helpers"

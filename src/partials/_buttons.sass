@@ -1,0 +1,36 @@
+.btn,
+input[type="submit"],
+button
+    @include appearance(none)
+    @include font-smoothing(true)
+    padding: $px-gutter-small $px-gutter-base
+    height: $height-ui-component
+    cursor: pointer
+    outline: 0
+    white-space: nowrap
+    border-radius: 4px
+    display: inline-block
+    text-align: center
+    vertical-align: middle
+    text-decoration: none
+    -ms-touch-action: manipulation
+    touch-action: manipulation
+    border: 2px solid transparent
+    font:
+        size: $font-size-14
+        weight: 500
+
+.btn
+    &--action
+        color: $white
+        background: $edison-blue
+
+        &:active
+            background: shade($edison-blue, 10%)
+
+    &--primary
+        color: $white
+        background: $edison-blue
+
+        &:active
+            background: shade($edison-blue, 10%)

@@ -1,0 +1,45 @@
+// Edison utilizes a standard fixed width grid based off of Bourbons outer-container() mixin
+// The outer-container grid is 1088px wide or 88em
+.container
+    &:after
+        content: ''
+        display: table
+        clear: both
+
+    &--fixed
+        max-width: 68em
+        margin-left: auto
+        margin-right: auto
+
+    &--fluid
+        width: 100%
+
+.row
+    @include display(flex)
+
+.col
+    @include flex(1)
+    @include media(tablet)
+        @include flex(0 0 100%)
+
+    // Generate a Flexbox grid
+    $grid-columns: 12
+    $grid-index: 1
+    $grid-single-column: 100% / $grid-columns
+
+    @while $grid-index <= $grid-columns
+        &-#{$grid-index}
+            flex: 0 0 ($grid-index * $grid-single-column)
+
+            &:not(:last-of-type)
+                margin-right: $px-gutter-small
+
+            &--tablet
+                @include media(tablet)
+                    flex: 0 0 ($grid-index * $grid-single-column)
+
+            &--mobile
+                @include media(mobile)
+                    flex: 0 0 ($grid-index * $grid-single-column)
+
+        $grid-index: $grid-index + 1

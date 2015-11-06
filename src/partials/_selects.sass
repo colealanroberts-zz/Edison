@@ -1,0 +1,23 @@
+.select
+    &-block
+        position: relative
+
+        &__input
+            @include appearance(none)
+            width: 100%
+            height: $height-ui-component
+            padding: $px-gutter-small $px-gutter-base $px-gutter-small $px-gutter-small
+            border: 2px solid $border-grey
+            background: $white
+            font:
+                size: $font-size-14
+
+            &:focus
+                outline: 0
+                border-color: $edison-blue
+
+        &:after
+            @include position(absolute, $px-gutter-base $px-gutter-small null null)
+            @include triangle(12px, shade($border-grey, 30%), down)
+            content: ''
+            display: block

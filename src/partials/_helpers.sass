@@ -1,0 +1,25 @@
+// Generate padding and margin classes
+$direction-list: top right bottom left
+$px-gutters: (4: em(4px), 10: em(10px), 20px: em(20px), 40: em(40px))
+
+@each $side in $direction-list
+    @each $key, $value in $px-gutters
+        .padding-#{$side}-#{$key}
+            padding-#{$side}: $value
+            &--tablet
+                @include media(tablet)
+                    padding-#{$side}: $value
+            &--mobile
+                @include media(mobile)
+                    padding-#{$side}: $value
+
+        .margin-#{$side}-#{$key}
+            margin-#{$side}: $value
+
+            &--tablet
+                @include media(tablet)
+                    margin-#{$side}: $value
+
+            &--mobile
+                @include media(mobile)
+                    margin-#{$side}: $value

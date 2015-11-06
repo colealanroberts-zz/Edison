@@ -1,0 +1,67 @@
+.input
+    &-block
+        position: relative
+        display: block
+
+        &__input
+            @include transition(border-color $ease-out-cubic $transition-duration-base)
+            position: relative
+            padding: 14px $px-gutter-tiny 0 $px-gutter-small
+            width: 100%
+            height: $height-ui-component
+            border-radius: 4px
+            border: 2px solid #ececec
+            font:
+                size: $font-size-14
+
+            // When the input element receives content or changes we'll toggle the .dirty class
+            // this will manually set the height.
+
+            &.dirty
+                ~ .input-block__label
+                    top: 4px
+                    font:
+                        size: $font-size-12
+
+            &:focus
+                outline: 0
+                border-color: $edison-blue
+
+                // Target the label
+                ~ .input-block__label
+                    top: 4px
+                    font:
+                        size: $font-size-12
+
+        &__label
+            @include position(absolute, 12px null null 12px)
+            @include transition(top $ease-out-cubic $transition-duration-base, font-size $ease-out-cubic $transition-duration-base)
+            color: darken($white, 40%)
+            z-index: 1
+            pointer-events: none
+            font:
+                size: $font-size-16
+
+        &__validation
+            @include position(absolute, null 0px null null)
+            padding: $px-gutter-tiny $px-gutter-small
+            color: $white
+            z-index: 1
+            top: -25px
+            border-radius: 4px 4px 0 0
+            font:
+                size: $font-size-base
+
+            &.valid
+                background: $brand-green
+
+                ~ .input-block__input
+                    border-color: $brand-green
+                    border-top-right-radius: 0
+
+            &.invalid
+                background: $brand-red
+
+                ~ .input-block__input
+                    border-color: $brand-red
+                    border-top-right-radius: 0

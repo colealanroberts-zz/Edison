@@ -1,0 +1,1 @@
+function nodeDepth(){if(1==dev){var e=78;$(document).keydown(function(o){o.which==e&&$("body").toggleClass("node-depth")})}else console.log("var dev is set to "+dev)}$(document).ready(function(){nodeDepth(dev)});

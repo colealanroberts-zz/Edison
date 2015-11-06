@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Edison Frontend Framework</title>
+    <link rel="stylesheet" href="edison.css">
+    <link rel="stylesheet" href="docs/docs.css">
+    <link rel="stylesheet" href="docs/prettify-theme.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+
+    <!-- Google Analytics -->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-29186069-2', 'exprecss.com');
+      ga('send', 'pageview');
+
+    </script>
+</head>
+    <body onload="prettyPrint()">
+        <main>
+            <div class="container--fixed">
+                <nav class="nav">
+                    <div class="logo">
+                        <!-- <img src="docs/img/logo.svg" class="logo__image"> -->
+                        <h1 class="logo__type">Edison</h1>
+                    </div>
+                    <ul class="nav__list">
+                        <li class="nav__item active">
+                            <a href="">Overview</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="">Documentation <span class="caret"></span></a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="">Pricing</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="">Showcase</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="">Support</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="hero-unit hero-unit--docs">
+                <div class="container container--fixed">
+                    <div class="hero-unit__text">
+                        <h1 class="hero-unit__text--header">Build it beautiful</h1>
+                        <p class="hero-unit__text--intro">Introducing Edison, the easiest way to build and launch an Apple Watch app in your browser. No coding required.</p>
+                        <a href="" class="hero-unit__btn">Get Started</a>
+                    </div>
+                    <div class="hero-unit__watch">
+                        <span class="hero-unit__watch__time"><span class="hero-unit__watch__time--hour"></span>:<span class="hero-unit__watch__time--minute"></span></span>
+                        <img src="docs/img/apple-watch.png" class="hero-unit__watch__image">
+                    </div>
+<!--                     <div class="phone-hero">
+                        <div class="phone-hero__user-image"></div>
+                        <img src="docs/img/iphone.png" class="phone-hero__image" data-phone-image="http://cdn.pttrns.com/419/4468_w320.jpg">
+                    </div>
+ -->                </div>
+            </div>
+            <div class="container container--fixed">
+                <!-- Introduction  -->
+                <section class="introduction">
+                    <span class="section-title">Introduction</span>
+                    <p>Edison is a beautiful, lightweight front end framework. Edison is built using Flexbox and its naming convention closely follows <a href="https://en.bem.info/method/definitions/">Yandex's BEM principles:</a></p>
+                    <blockquote class="blockquote">BEM – meaning block, element, modifier – is a front-end naming methodology thought up by the guys at Yandex. It is a smart way of naming your CSS classes to give them more transparency and meaning to other developers. They are far more strict and informative, which makes the BEM naming convention ideal for teams of developers on larger projects that might last a while. - <a href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax">source</a></blockquote>
+                    <p>This methodology makes Edison extremely modular while remaining lean and allows designers and developers to rapidly expand upon Edison's basic visual style.</p>
+                </section>
+            </div>
+        </main>
+        <script src="docs/docs.js"></script>
+        <script src="src/js/edison.js"></script>
+    </body>
+</html>

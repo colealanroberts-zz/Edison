@@ -1,0 +1,16 @@
+# Ignore SASS libraries
+vendor/*
+vendor/.
+
+# Ignore Sass Cache
+.sass-cache*
+src/.sass-cache/*
+
+# Ignore Codekit
+config.codekit
+
+# Ignore HTACCESS
+.htaccess
+
+# Ignore .DS_Store
+.DS_Store

@@ -1,0 +1,405 @@
+// Import Bourbon
+@import "../vendor/bourbon/dist/_bourbon"
+
+// Import San Francisco Web Font
+@font-face
+    font-family: "San Francisco"
+    font-weight: 100
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-ultralight-webfont.woff2")
+
+/** Thin */
+@font-face
+    font-family: "San Francisco"
+    font-weight: 200
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-thin-webfont.woff2")
+
+
+/** Medium */
+@font-face
+    font-family: "San Francisco"
+    font-weight: 300
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2")
+
+
+/** Semi Bold */
+@font-face
+    font-family: "San Francisco"
+    font-weight: 500
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-semibold-webfont.woff2")
+
+
+/** Bold */
+@font-face
+    font-family: "San Francisco"
+    font-weight: bold
+    src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2")
+
+// For Style Guide Only
+// Colors
+$edison-orange: #F95E4E
+$edison-blue: #3498DB
+$exprecss-grey: #435769
+$white: #FFFFFF
+$brand-green: #6BAD42
+$brand-red: #DF4938
+$brand-yellow: ''
+$dark-grey: #5C5C5C
+$border-grey: #E7E7E7
+$body-text-color: #5D687C
+$brand-blue: #3498DB
+$light-grey: #FCFCFC
+$brand-background-grey: #F8F8F8
+$base-color: $edison-blue
+$asphalt: #2C3E50
+$background-light-grey: #F3F5F6
+
+$creep: mix(#1A202E, #000)
+
+// Links
+$anchor-color: $edison-blue
+
+// Border Radius
+$border-radius-default: 2px
+
+// Transitions
+$transition-duration-default: 300ms
+
+// Gutters
+$px-gutter-tiny: em(4px)
+$px-gutter-small: em(10px)
+$px-gutter-base: em(20px)
+$px-gutter-large: em(40px)
+
+// Breakpoints
+$breakpoint-mobile: 480px
+$breakpoint-tablet: 800px
+$breakpoint-desktop: 980px
+
+$font-family-default: 'Avenir', 'Helvetica', 'Arial', sans-serif
+$font-size-12: em(12px)
+$font-size-14: em(14px)
+$font-size-16: em(16px)
+$font-size-24: em(24px)
+$font-size-36: em(36px)
+$font-weight-thin: 100
+$font-weight-light: 300
+$font-weight-book: 400
+$font-weight-semibold: 600
+$font-weight-bold: 700
+
+$height-footer: 80px
+
+$animation-rotate-duration: 3050ms
+
+// Extends
+%force-hardware-accel
+    @include transform(translate3d(0, 0, 0))
+
+// Mixins
+@mixin media($point)
+    @if $point == desktop
+        @media screen and (min-width: $breakpoint-desktop)
+            @content
+
+    @else if $point == tablet
+        @media screen and (max-width: $breakpoint-tablet)
+            @content
+
+    @else if $point == mobile
+        @media screen and (max-width: $breakpoint-mobile)
+            @content
+
+    @else if $point == $point
+        @media screen and (max-width: $point)
+            @content
+
+// Background Image
+@mixin linear-gradient-image($g1, $g2, $bg-image)
+    background-image: -webkit-linear-gradient($g1, $g2), url($bg-image)
+    background-image: -moz-linear-gradient($g1, $g2), url($bg-image)
+    background-image: -o-linear-gradient($g1, $g2), url($bg-image)
+    background-image: linear-gradient($g1, $g2), url($bg-image)
+
+html,
+body
+    color: #8799AE
+    font-family: $font-family-default
+
+p
+    margin: 0 0 $px-gutter-small
+    font-size: em(18px)
+
+section
+    padding: 60px 40px
+    overflow: hidden
+    border-bottom: 1px solid #F4F4F4
+    @include media(tablet)
+        padding: 40px 10px
+
+pre
+    display: none
+
+a
+    color: #44B7EC
+
+.nav
+    @include transition(color $ease-out-cubic $transition-duration-default, border-bottom $ease-out-cubic $transition-duration-default)
+    max-width: 68em
+    margin-left: auto
+    margin-right: auto
+    z-index: 9999
+    width: 100%
+    position: absolute
+    height: 60px
+    border-bottom: 1px solid rgba($white, 0.08)
+
+    &.opaque
+        background: $white
+        border-bottom: 1px solid $border-grey
+
+    &__list
+        float: right
+
+    &__item
+        padding: 0 20px
+        height: 60px
+        line-height: 60px
+        display: inline-block
+
+        a
+            color: inherit
+            position: relative
+            font:
+                size: $font-size-14
+                weight: 600
+
+        &.active
+            color: $white
+
+.caret
+    @include triangle(8px, #86929D, down)
+    position: absolute
+    top: 8px
+    right: -16px
+
+.logo
+    float: left
+    height: 60px
+    line-height: 60px
+
+    &__image
+        @include position(relative, 4px null null null)
+        float: left
+        height: 44px
+        width: auto
+        margin-right: $px-gutter-small
+        margin-bottom: $px-gutter-small
+
+    &__type
+        @include transition(color, $ease-out-cubic, $transition-duration-default)
+        position: relative
+        top: 0px
+        color: white
+
+        &.opaque
+            color: $edison-blue
+
+    &__tagline
+        position: relative
+        top: 12px
+        font-size: $font-size-14
+
+@include keyframes(watch-bob)
+    0%
+        @include transform(translateY(15px))
+
+    50%
+        @include transform(translateY(0px))
+
+    100%
+        @include transform(translateY(15px))
+
+
+@include keyframes(watch-bob--time)
+    0%
+        @include transform(translateY(15px) rotateY(-59deg) rotateX(8deg) skew(-4deg) rotate(2deg))
+
+    50%
+        @include transform(translateY(0px) rotateY(-59deg) rotateX(8deg) skew(-4deg) rotate(2deg))
+    100%
+        @include transform(translateY(15px) rotateY(-59deg) rotateX(8deg) skew(-4deg) rotate(2deg))
+
+
+@include keyframes(watch-shadow)
+    0%, 100%
+        width: 90px
+        -webkit-filter: blur(24px)
+
+    50%
+        width: 140px
+        -webkit-filter: blur(30px)
+
+@include keyframes(hero-unit-text--watch-in)
+    0%
+        opacity: 0
+
+    100%
+        opacity: 1
+
+@include keyframes(hero-unit-text--intro-in)
+    0%
+        @include transform(rotateX(-40deg))
+        @include transform(translateY(40px))
+        opacity: 0
+
+    100%
+        @include transform(rotateX(0deg))
+        @include transform(translateY(0px))
+        opacity: 1
+
+.prettyprint
+    width: 100%
+    overflow-x: scroll
+    overflow-y: auto
+
+.hero-unit
+    &--docs
+        padding: 160px 20px 0 20px
+        background:
+            size: cover
+            repeat: none
+            image: -webkit-linear-gradient(rgba(#080b0e, 0.7), rgba(#233140, 0.2)), url("../docs/img/bg.jpg") // With this background set background-repeat: none
+        height: 100vh
+        min-height: 440px
+        max-height: 600px
+        overflow: hidden
+
+    &__text
+        position: absolute
+        top: 160px
+        width: calc(100% - 700px)
+        max-width: 580px
+
+
+        &--header
+            @include animation(hero-unit-text--intro-in $ease-out-cubic 600ms)
+
+        &--intro
+            @include animation(hero-unit-text--intro-in $ease-out-cubic 500ms)
+            @include animation-delay(300ms)
+            opacity: 0
+            width: 470px
+
+
+        h1
+            color: $white
+            font:
+                size: 60px
+
+    &__btn
+        @include animation(hero-unit-text--intro-in $ease-out-cubic 500ms)
+        @include animation-delay(500ms)
+        opacity: 0
+        position: relative
+        padding: 0 20px 0 0
+        border-radius: 3px
+        top: 20px
+        height: 54px
+        line-height: 54px
+        vertical-align: middle
+        text-align: center
+        display: block
+        width: 180px
+        color: $white
+        font:
+            weight: 600
+        border: 1px solid #102731
+        background: -webkit-linear-gradient(#00AFFF, #0081BD)
+        box-shadow: inset 0 1px rgba(255, 255, 255, 0.3)
+
+        &:before,
+        &:after
+            position: absolute
+            top: 0
+            right: 34px
+            content: ''
+            display: block
+            background: $white
+            width: 9px
+            height: 2px
+            border-radius: 2px
+
+        &:before
+            @include transform(rotate(-45deg))
+            top: 28px
+
+        &:after
+            @include transform(rotate(45deg))
+            top: 23px
+
+    &__watch
+        @include animation(hero-unit-text--watch-in $ease-in-out-cubic 1650ms)
+        @include animation-delay(400ms)
+        opacity: 0
+        position: relative
+        float: right
+        width: 300px
+        margin-right: $px-gutter-large
+
+        &:after
+            @include transform(translateX(-50%) rotateX(83deg))
+            @include position(absolute, 360px null null 50%)
+            @include animation(watch-shadow $ease-in-out-cubic 3200ms infinite)
+            content: ''
+            width: 140px
+            height: 60px
+            background: black
+            border-radius: 999px
+
+        &__image
+            @include animation(watch-bob $ease-in-out-cubic 3125ms infinite)
+            -webkit-user-drag: none
+
+        &__time
+            @include animation(watch-bob--time $ease-in-out-cubic 3125ms infinite)
+            position: absolute
+            top: 70px
+            width: 104px
+            text-align: right
+            left: 36px
+            z-index: 999
+            padding: 2px 10px
+            color: $white
+            background: transparent
+            text-shadow: 0 0 2px white
+            font:
+                weight: 200
+                size: 40px
+                family: 'San Francisco'
+
+.section-title
+    display: block
+    color: $exprecss-grey
+    margin: 0 0 $px-gutter-small 0
+    font:
+        size: $font-size-24
+        weight: 500
+
+.subtitle
+    display: block
+    color: $edison-blue
+    text-transform: uppercase
+    letter-spacing: 1px
+    font:
+        size: $font-size-12
+        weight: 600
+
+.cell
+    background: darken($white, 4%)
+    margin-bottom: $px-gutter-small
+    margin-right: $px-gutter-small
+    padding: $px-gutter-base
+    border-radius: $px-gutter-tiny
+    font:
+        size: $font-size-14
+        weight: bold
