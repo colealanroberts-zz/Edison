@@ -1,6 +1,6 @@
-Exprecss
+Edison
 ========
 
-Express - A lightweight responsive framework built on Bourbon and Neat
+Edison
 
-![alt tag](https://raw.githubusercontent.com/colealanroberts/Exprecss/master/exprecss-screenshot.png)
+![alt tag](https://raw.githubusercontent.com/colealanroberts/Edison/master/edison-screenshot.png)
